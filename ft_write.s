@@ -12,4 +12,9 @@ ft_write:
 	jc .error
 	ret
 .error:
-	
+	push rax
+	call ___error
+	pop r10; не шарю какой регистр, но пусть будет r10
+	mov [rax], r10
+	mov rax, -1
+	ret
